@@ -1,7 +1,13 @@
+using Microsoft.EntityFrameworkCore;
+using moviesASPDotNet.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<MoviesDbContext>(options =>
+options.UseSqlServer(builder.Configuration.GetConnectionString("DbConnectionString")));
 
 var app = builder.Build();
 

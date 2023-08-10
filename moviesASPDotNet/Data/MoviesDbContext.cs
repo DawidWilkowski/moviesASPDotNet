@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using moviesASPDotNet.Models;
 
 namespace moviesASPDotNet.Data
 {
@@ -8,7 +9,7 @@ namespace moviesASPDotNet.Data
         {
         }
 
-
+        public DbSet<Movie> Movies { get; set; }
 
     }
 }
