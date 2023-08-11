@@ -28,5 +28,21 @@ namespace moviesASPDotNet.Controllers
             List<Movie> movies = _dbContext.Movies.ToList();
             return View(movies);
         }
+        [HttpGet]
+        [Route("/movies/{id}")]
+        public IActionResult MoviePage(int Id)
+        {
+            Movie movie = _dbContext.Movies.Find(Id);
+            if (movie == null)
+            { 
+                return NotFound();
+        }
+            else 
+                { 
+                return View(movie);
+                }
+           
+        }
     }
+
 }
